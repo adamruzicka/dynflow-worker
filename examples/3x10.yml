@@ -1,0 +1,35 @@
+# This playbook sets up the orchestrator
+# and 3 generic workers, each with 10 threads
+
+- hosts: all
+  roles:
+    - role: dynflow-worker
+      vars:
+        worker_name: orchestrator
+        worker_concurrency: 1
+        worker_queues:
+          - dynflow_orchestrator
+
+    - role: dynflow-worker
+      vars:
+        worker_name: worker-0
+        worker_concurrency: 10
+        worker_queues:
+          - default
+          - remote_execution
+
+    - role: dynflow-worker
+      vars:
+        worker_name: worker-1
+        worker_concurrency: 10
+        worker_queues:
+          - default
+          - remote_execution
+
+    - role: dynflow-worker
+      vars:
+        worker_name: worker-2
+        worker_concurrency: 10
+        worker_queues:
+          - default
+          - remote_execution
