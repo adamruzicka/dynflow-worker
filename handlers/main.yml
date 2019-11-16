@@ -1,2 +1,5 @@
 ---
-# handlers file for dynflow-worker
+- name: configuration changed
+  service:
+    name: dynflow-sidekiq@{{ worker_name }}
+    state: restarted

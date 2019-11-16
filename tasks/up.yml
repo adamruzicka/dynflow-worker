@@ -1,0 +1,10 @@
+---
+- template:
+    dest: "/etc/foreman/dynflow/{{ worker_name }}.yml"
+    src: templates/worker.yml.j2
+  notify: "configuration changed"
+
+- service:
+    name: dynflow-sidekiq@{{ worker_name }}
+    state: started
+    enabled: yes

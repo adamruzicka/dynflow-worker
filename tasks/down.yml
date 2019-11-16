@@ -1,0 +1,9 @@
+---
+- service:
+    name: dynflow-sidekiq@{{ worker_name }}
+    state: stopped
+    enabled: no
+
+- file:
+    path: "/etc/foreman/dynflow/{{ worker_name }}.yml"
+    state: absent

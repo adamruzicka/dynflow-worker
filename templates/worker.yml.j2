@@ -1,0 +1,2 @@
+{% set data = { "concurrency": worker_concurrency, "queues": worker_queues } %}
+{{ data | to_nice_yaml }}

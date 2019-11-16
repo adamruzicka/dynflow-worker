@@ -1,2 +1,8 @@
 ---
-# tasks file for dynflow-worker
+- import_tasks: up.yml
+  tags:
+   - up
+
+- import_tasks: down.yml
+  tags:
+   - down
